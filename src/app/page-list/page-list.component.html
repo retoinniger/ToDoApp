@@ -1,0 +1,11 @@
+<div class="list-view">
+  <a href="#" (click)="toDoShow=!toDoShow" [attr.aria-expanded]="toDoShow"><h2 class="h6">Offen <span>({{ $todos.length }})</span></h2></a>
+  <div *ngIf="toDoShow">
+    <app-template-todo (ping)="update($event)" [toDo$]="ToDo" *ngFor="let ToDo of $todos"></app-template-todo>
+  </div>
+  <app-template-todo-form (ping)="create($event)" *ngIf="toDoShow"></app-template-todo-form>
+  <a href="#" (click)="toDoDoneShow=!toDoDoneShow" [attr.aria-expanded]="toDoDoneShow"><h2 class="h6">Erledigt <span>({{ $todosDone.length }})</span></h2></a>
+  <div *ngIf="toDoDoneShow">
+    <app-template-todo (ping)="update($event)" [toDo$]="ToDo" *ngFor="let ToDo of $todosDone"></app-template-todo>
+  </div>
+</div>

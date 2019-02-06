@@ -1,0 +1,42 @@
+// Grid Styles
+.row
+  @include flexbox()
+  @include flex-wrap(wrap)
+  margin-bottom: 1rem
+  
+[class*='col-']
+  width: 100%
+  position: relative
+  padding: 1rem
+  min-height: 1px
+
+.col-auto
+  -ms-flex: 0 0 auto
+  flex: 0 0 auto
+  width: auto
+  max-width: none
+
+@for $i from 1 through $columns
+  .col-small-#{$i}
+    flex: 0 0 100% / $columns * $i
+    -ms-flex: 0 0 100% / $columns * $i
+    max-width: 100% / $columns * $i
+
+  @include breakpoint(medium)
+    @for $i from 1 through $columns
+      .col-medium-#{$i}
+        -ms-flex: 0 0 100% / $columns * $i
+        flex: 0 0 100% / $columns * $i
+        max-width: 100% / $columns * $i
+    
+  @include breakpoint(large)
+    @for $i from 1 through $columns
+      .col-large-#{$i}
+        -ms-flex: 0 0 100% / $columns * $i
+        flex: 0 0 100% / $columns * $i
+        max-width: 100% / $columns * $i
+
+@for $i from 1 through $columns
+	.offset-#{$i}
+    margin-left: 100% / $columns * $i
+/* eof grid */

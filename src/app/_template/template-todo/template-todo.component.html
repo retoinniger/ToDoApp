@@ -1,0 +1,14 @@
+<div class="row" [class.done]="toDo$.status">
+  <div class="col-medium-1 col-large-1 prime-dark">
+    <i class="fas fa-grip-vertical center-y" aria-hidden="true"></i>
+    <label for="erledigt" class="show-for-sr">ToDo erledigt</label>
+    <input type="checkbox" (click)="changeCheck($event)">
+  </div>
+  <div class="col-medium-9 col-large-9 white">
+    <label for="toDoInput" class="show-for-sr">ToDo Text</label>
+    <input type="text" id="toDoInput" [(ngModel)]="toDo$.label" (blur)="changeLabel($event)" >
+  </div>
+  <div class="col-medium-2 col-large-2 prime">
+    <button class="center-y full" (click)="deleteToDo($event)" >Löschen</button>
+  </div>
+</div>

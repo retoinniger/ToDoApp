@@ -1,0 +1,5 @@
+<div class="row">
+  <label for="todo_name" class="col-small-2 prime-dark">Name</label>
+  <input type="text" id="todo_name" class="col-small-3" (keyup.enter)="createToDo($event)" [(ngModel)]="toDo$.label">
+  <input type="submit" class="button col-small-2 prime" value="Erstellen" (click)="createToDo($event)">
+</div>
